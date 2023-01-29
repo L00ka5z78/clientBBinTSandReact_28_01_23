@@ -76,3 +76,20 @@ module.exports = {
 
     DZIAŁA kiedy importuje rzeczy z katalogu types z backendu!!
     inaczej albo zła ściezka do backendu albo niedoinstalowane moduły...
+
+    ***************************************
+    OPROCZ TEGO NA BACKENDIE, JAK MASZ HBSy TO ZMIEN RENDERY NA JSONY
+
+    dodaj obsluge CORS w backendzie
+    npm i cors
+    npm i -D @types/cors
+    ustaw import na:
+
+import * as cors from 'cors';
+    app.use(
+        cors({
+            origin: 'http://localhost:3000',    <=== tak bylo
+            methods: ['POST', 'PUT', 'GET', 'DELETE'],  <== dodane do autoryzacji itp.
+            credentials: true,
+        })
+    );

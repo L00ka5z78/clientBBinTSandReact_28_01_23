@@ -5,30 +5,32 @@ import {ClientEntity} from 'types'
 
 interface Props {
     clients: ClientEntity[];
-    onClientsChange: () => void;
+    // onClientsChange: () => void;
+
 }
 
-export const ClientTable = (props: Props) => (
-    <table>
-        <thead>
-        <tr>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Next contact date</th>
-            <th>Notes</th>
 
-        </tr>
-        </thead>
-        <tbody>
-        {
-            props.clients.map(client => (
-                <ClientTableRow client={client}
-                               key={client.id}
-                                onClientsChange={props.onClientsChange}
-                />
-            ))
-        }
-        </tbody>
-    </table>
-);
+export const ClientTable = (props: Props) => {
+    console.log(props.clients);
+    return (
+        <>
+            <table>
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Next contact at</th>
+                    <th>Notes</th>
+                </tr>
+                </thead>
+                <tbody>
+                {props.clients && props.clients.map((client) => (
+                        <ClientTableRow client={client} key={client.id}/>
+                    ))}
+                </tbody>
+            </table>
+        </>
+
+    )
+}
 

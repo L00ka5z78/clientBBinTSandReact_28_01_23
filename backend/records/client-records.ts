@@ -10,7 +10,7 @@ export class ClientRecord implements ClientEntity {
     id?: string;
     name: string;
     mail: string;
-    nextContactAt: Date;
+    nextContactAt: string;
     notes: string;
 
     constructor(obj: ClientEntity) {

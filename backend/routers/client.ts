@@ -1,20 +1,18 @@
 import * as express from 'express';
 import {Router, Request, Response} from 'express';
-import { pool } from '../utils/db';
-import { ClientRecord } from '../records/client-records';
+import {pool} from '../utils/db';
+import {ClientRecord} from '../records/client-records';
 import {NotFoundError} from "../utils/error";
 import {CreateClientReq, ListClientRes} from '../types';
-
-import { ValidationError} from "../utils/error";
+import {ValidationError} from "../utils/error";
 
 export const clientRouter = express.Router();
 
 clientRouter
     // disply all clients
 
-    .get('/', async (req, res) => {
+    .get('/', async (req, res): Promise<void> => {
         const clients = await ClientRecord.listAll();
-
         res.json({
             clients,
         });
@@ -22,25 +20,22 @@ clientRouter
 
     // create new Client
 
-    .post('/', async (req, res) => {
+    .post('/', async (req, res): Promise<void> => {
         // console.log(req.body)
-
         // const newClient = new ClientRecord(Client);
         const newClient = new ClientRecord(req.body as CreateClientReq);
         await newClient.insert();
         res.json(newClient)
-       })
-
+    })
 
     //display one Client
 
     .get('/:id', async (req, res) => {
         const client = await ClientRecord.getOne(req.params.id);
-
         if (!client) {
             throw new NotFoundError();
         }
-        res.render('Client/one.hbs', {
+        res.json({
             client,
         });
     })
@@ -54,21 +49,8 @@ clientRouter
         client.nextContactAt = req.body.nextContactAt;
         client.notes = req.body.notes
         await client.update()
-
-        res.render('Client/modified.hbs', {
+        res.json( {
             client
-        });
-    })
-
-
-    .get('/form/edit/:id', async (req, res) => {
-        const client = await ClientRecord.getOne(req.params.id);
-        if (!client) {
-            throw new NotFoundError();
-        }
-
-        res.render('Client/forms/edit.hbs', {
-            client,
         });
     })
 
@@ -80,8 +62,7 @@ clientRouter
             throw new NotFoundError();
         }
         await client.delete()
-
-        res.render('Client/deleted.hbs', {
+        res.json({
             client,
         });
     })
