@@ -22,7 +22,7 @@ export const ClientList = () => {
         (async () => {
             const res = await fetch('http://localhost:3001/client')
             const data = await res.json();
-            setClientsList(data.client);
+            setClientsList(data.clientsList);
             // setClientsList(data.clientList);
         })()
     }, [])
@@ -36,7 +36,7 @@ export const ClientList = () => {
     {/*<ClientTable clients={clientsList} onClientsChange={refreshClients}/>*/}
     // </>
     return <>
-    <h1>Clients list</h1>
+        <h1>Clients list</h1>
         <ClientTable clients={clientsList}/>
     </>
 }

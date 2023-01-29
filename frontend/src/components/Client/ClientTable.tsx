@@ -24,9 +24,10 @@ export const ClientTable = (props: Props) => {
                 </tr>
                 </thead>
                 <tbody>
-                {props.clients && props.clients.map((client) => (
-                        <ClientTableRow client={client} key={client.id}/>
-                    ))}
+                {props.clients.map(client => <ClientTableRow client={client} key={client.id}/>)}
+                {/*{props.clients.map((client) => (*/}
+                {/*    <ClientTableRow client={client} key={client.id}/>*/}
+                {/*))}*/}
                 </tbody>
             </table>
         </>
