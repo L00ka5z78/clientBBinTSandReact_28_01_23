@@ -21,7 +21,7 @@ export const handleError = (err: Error, req: Request, res: Response, next: NextF
     res.status(err instanceof ValidationError ? 400 : 500)
 
 
-        .render('error.hbs', {
+        .json( {
             message: err instanceof ValidationError ? err.message : 'Sorry, try again later...'
         });
 }

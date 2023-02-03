@@ -5,7 +5,7 @@ import {ClientEntity} from 'types';
 
 interface Props {
     client: ClientEntity;
-    // onClientsChange: () => void;
+    onClientsChange: () => void;
 }
 
 export const ClientTableRow = (props: Props) => {
@@ -14,15 +14,17 @@ export const ClientTableRow = (props: Props) => {
         if (!window.confirm(`Are you sure you want to remove ${props.client.name}?`)) {
             return;
         }
-    //     const res = await fetch(`http://localhost:3001/client/${props.client.id}`, {
-    //         method: 'DELETE',
-    //     });
-    //     if ([400, 500].includes(res.status)) {
-    //         const error = await res.json();
-    //         alert(`Error has occurred: ${error.message}`);
-    //         return;
-    //     }
-    //     props.onClientsChange();
+        const res = await fetch(`http://localhost:3001/client/${props.client.id}`, {
+            method: 'DELETE',
+        });
+        //dodaj spinnera/komunikat ze trwa usuwanie useState() pokazujacy ze trwa kasowanie
+
+        if ([400, 500].includes(res.status)) {
+            const error = await res.json();
+            alert(`Error has occurred: ${error.message}`);      //daj chakre albo toastaza alerta
+            return;
+        }
+        props.onClientsChange();
     };
 
     return (

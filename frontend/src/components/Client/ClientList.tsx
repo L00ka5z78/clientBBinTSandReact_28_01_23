@@ -9,36 +9,28 @@ export const ClientList = () => {
 
     console.log(clients);
 
+   const refreshClientTable = (async () => {
+       setClients(null);
+        const res = await fetch('http://localhost:3001/client')
+        const data = await res.json();
 
-    // const refreshClients = async () => {
-    //     setClients(null);
-    //     const res = await fetch('http://localhost:3001/client')
-    //     const data = await res.json();
-    //     setClients(data.clientsList);
-    // };
+        // console.log(data);
+        /* pokazuje pobrane dane z BE patrz na klucz w tablicy!!*/
+        setClients(data.clients);
+    })
 
-    // useEffect(() => {
-    //     refreshClients();
-    // }, []);
 
     useEffect(() => {
-        (async () => {
-            const res = await fetch('http://localhost:3001/client')
-            const data = await res.json();
-
-            // console.log(data);
-           /* pokazuje pobrane dane z BE patrz na klucz w tablicy!!*/
-            setClients(data.clients);
-        })()
+        refreshClientTable()
     }, [])
 
     if (clients === null) {
-        // return <p>loading...</p>
+
         return <Spinner/>
     }
 
     return <>
         <h1>Clients list</h1>
-        <ClientTable clients={clients} />
+        <ClientTable clients={clients} onClientsChange={refreshClientTable}/>
     </>
 }
