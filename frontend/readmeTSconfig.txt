@@ -93,3 +93,19 @@ import * as cors from 'cors';
             credentials: true,
         })
     );
+
+    //t5d1
+
+    //
+    // export const App = () => {
+    //   return (
+    //       <>
+    //           <Navbar/>
+    //           <Routes>
+    //               <Route path="/client" element={<ClientView/>}/>
+    //           </Routes>
+    //           <Footer/>
+    //             <DarkMode/>
+    //       </>
+    //   );
+    // }

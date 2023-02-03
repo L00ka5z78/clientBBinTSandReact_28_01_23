@@ -1,17 +1,20 @@
 import React, {useEffect, useState} from "react";
 import {ClientTable} from "./ClientTable";
-import {ClientEntity} from 'types';
+import {ClientEntity, CreateClientReq, ListClientRes} from 'types';
 import {Spinner} from "../spinner/Spinner";
 
 export const ClientList = () => {
-    // const [clientsList, setClientsList] = useState(null);
-    const [clientsList, setClientsList] = useState<ClientEntity[] | null>(null);
+
+    const [clients, setClients] = useState<ClientEntity[] | null>(null);
+
+    console.log(clients);
+
 
     // const refreshClients = async () => {
-    //     setClientsList(null);
+    //     setClients(null);
     //     const res = await fetch('http://localhost:3001/client')
     //     const data = await res.json();
-    //     setClientsList(data.clientsList);
+    //     setClients(data.clientsList);
     // };
 
     // useEffect(() => {
@@ -22,21 +25,20 @@ export const ClientList = () => {
         (async () => {
             const res = await fetch('http://localhost:3001/client')
             const data = await res.json();
-            setClientsList(data.clientsList);
-            // setClientsList(data.clientList);
+
+            // console.log(data);
+           /* pokazuje pobrane dane z BE patrz na klucz w tablicy!!*/
+            setClients(data.clients);
         })()
     }, [])
 
-    if (clientsList === null) {
-        return <p>loading...</p>
-        // return <Spinner/>
+    if (clients === null) {
+        // return <p>loading...</p>
+        return <Spinner/>
     }
-    // return <>
-    {/*<h1>Clients</h1>*/}
-    {/*<ClientTable clients={clientsList} onClientsChange={refreshClients}/>*/}
-    // </>
+
     return <>
         <h1>Clients list</h1>
-        <ClientTable clients={clientsList}/>
+        <ClientTable clients={clients} />
     </>
 }

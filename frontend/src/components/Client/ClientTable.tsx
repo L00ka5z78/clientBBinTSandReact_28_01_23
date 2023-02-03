@@ -1,22 +1,21 @@
 import React from 'react';
 import {ClientTableRow} from "./ClientTableRow";
 import {ClientEntity} from 'types'
-// import '../../index.css'
+
 
 interface Props {
     clients: ClientEntity[];
     // onClientsChange: () => void;
-
 }
-
-
 export const ClientTable = (props: Props) => {
+    // console.log(props.onClientsChange);
     console.log(props.clients);
     return (
         <>
             <table>
                 <thead>
                 <tr>
+                    <th>ID</th>
                     <th>Name</th>
                     <th>Email</th>
                     <th>Next contact at</th>
@@ -24,14 +23,10 @@ export const ClientTable = (props: Props) => {
                 </tr>
                 </thead>
                 <tbody>
-                {props.clients.map(client => <ClientTableRow client={client} key={client.id}/>)}
-                {/*{props.clients.map((client) => (*/}
-                {/*    <ClientTableRow client={client} key={client.id}/>*/}
-                {/*))}*/}
+                {props.clients.map(client => <ClientTableRow client={client} key={client.id} />)}
                 </tbody>
             </table>
         </>
 
     )
 }
-

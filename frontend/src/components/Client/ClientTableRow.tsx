@@ -1,7 +1,6 @@
 import React, {MouseEvent} from 'react';
-import {Link} from "react-router-dom";
+import { Link } from 'react-router-dom';
 import {ClientEntity} from 'types';
-import '../../index.css'
 
 
 interface Props {
@@ -10,11 +9,11 @@ interface Props {
 }
 
 export const ClientTableRow = (props: Props) => {
-    // const deleteClient = async (e: MouseEvent) => {
-    //     e.preventDefault();
-    //     if (!window.confirm(`Are you sure you want to remove ${props.client.name}?`)) {
-    //         return;
-    //     }
+    const deleteClient = async (e: MouseEvent) => {
+        e.preventDefault();
+        if (!window.confirm(`Are you sure you want to remove ${props.client.name}?`)) {
+            return;
+        }
     //     const res = await fetch(`http://localhost:3001/client/${props.client.id}`, {
     //         method: 'DELETE',
     //     });
@@ -24,7 +23,7 @@ export const ClientTableRow = (props: Props) => {
     //         return;
     //     }
     //     props.onClientsChange();
-    // };
+    };
 
     return (
         <tr>
@@ -33,16 +32,14 @@ export const ClientTableRow = (props: Props) => {
             {/*    {props.client.name}*/}
             {/*</Link>*/}
             <td>{props.client.name}</td>
-
             <td>{props.client.mail}</td>
             <td>{props.client.nextContactAt}</td>
+            <td>{props.client.notes}</td>
 
             <td>
-                {props.client.notes}
+            <a href="#" onClick={deleteClient}>🗑</a>
             </td>
-            {/*<td>*/}
-            {/*<a href="#" onClick={deleteClient}>🗑</a>*/}
-            {/*</td>*/}
+
         </tr>
     );
 };

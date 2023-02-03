@@ -81,6 +81,16 @@ export class ClientRecord implements ClientEntity {
     }
 }
 
+
+
+
+
+
+
+
+
+
+
    // constructor(obj) { //it will be added at the end !!************************************
     //     const { id, name, mail, nextContactAt, notes } = obj;
     //     if (!id || typeof id !== "string") {

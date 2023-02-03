@@ -1,7 +1,6 @@
 import * as express from 'express';
 import 'express-async-errors';
 import * as methodOverride from 'method-override';
-// import { engine } from 'express-handlebars';
 import {homeRouter} from './routers/home';
 import {clientRouter} from './routers/client';
 import * as cors from 'cors';
@@ -24,8 +23,6 @@ app.use(
         credentials: true,
     })
 );
-
-
 app.use('/', homeRouter);
 app.use('/client', clientRouter);
 
