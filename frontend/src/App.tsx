@@ -2,19 +2,18 @@ import React from 'react';
 import './App.css';
 import {ClientView} from "./views/ClientView";
 import {AddClient} from "./components/AddClient/AddClient";
+import {Footer} from "./components/footer/Footer";
 import {Link, Route, Routes} from "react-router-dom";
+import {Navbar} from "./components/navbar/Navbar";
 
 export const App = () => {
     return (
         <>
-            <h1>Wstaw navbara...</h1>
-            Hederek z linkiem: <Link to="/add">Switch to addClient </Link>
+            <Navbar/>
             <Routes>
                 <Route path="/" element={<ClientView/>}/>
             </Routes>
-            <h3>A tu footerka</h3>
-            <Link to="/test">Switch to test</Link>
-
+            <Footer/>
         </>
     )
 }

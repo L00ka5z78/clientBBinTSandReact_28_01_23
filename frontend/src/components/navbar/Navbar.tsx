@@ -1,10 +1,9 @@
 import React from "react";
 import {Link, NavLink, redirect, useNavigate} from "react-router-dom";
+import Logo from '../../images/smiley.png';
+import {inspect} from "util";
+import styles from './Navbar.module.css'
 
-import Logo from '../../images/smiley.png'
-
-
-import './Navbar.css'
 //******************************adjust styling logo placement*****
 
 export const Navbar = () => {
@@ -25,17 +24,20 @@ export const Navbar = () => {
 
     return (
 
-        <div className="header">
-            <div className="container">
-                <div className="logo">
-                    <Link to="/">
-                        <img className="header_img" src={Logo} alt="smiley :)"/>
+        <div className={styles.navbar}>
+            <div className={styles.container}>
+                <div className={styles.logo}>
+                    <Link to="/mamma">
+                        <img src={Logo} alt="smiley :)"/>
                     </Link>
                 </div>
-                <h1>SANTA APP</h1>
-                    <span>JOhhny</span>
+                <h1>Clients database</h1>
+                <Link to="/add">Switch to addClient </Link>
+                <span>JOhhny</span>
+                    <button className={styles.btn}>Log in</button>
                     {/*<button onClick={routeChange}>Log in</button>*/}
                 </div>
+
             </div>
     );
 };

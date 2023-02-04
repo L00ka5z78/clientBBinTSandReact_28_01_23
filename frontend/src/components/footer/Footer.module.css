@@ -1,5 +1,5 @@
 .footer {
-  background-color: #c2c0ae;
+  background-color: #dccb2e;
   height: 50px;
   display: flex;
   justify-content: space-between;
@@ -7,11 +7,17 @@
   padding: 10px;
   margin: 10px;
   font-size: 14px;
-  /*position: fixed;*/
-  /*bottom: 0;*/
+
 }
 
   .footer_img {
     width: 40px;
     border-radius: 50%;
   }
+/*.link {*/
+/*  display: flex;*/
+/*  align-items: center;*/
+/*  justify-content: space-between;*/
+/*  flex-direction: row;*/
+/*  */
+/*}*/

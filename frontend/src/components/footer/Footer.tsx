@@ -1,18 +1,20 @@
 import React from "react";
 import Logo from '../../images/smiley.png'
-import './Footer.css'
+import styles from '../footer/Footer.module.css'
 import {Link} from "react-router-dom";
 
 export const Footer = () => {
 
     return (
-        <footer className="footer">
-            <div>
-                <Link to="/">
-                    <img className="footer_img" src={Logo} alt="smiley :)"/>
+        <footer className={styles.footer}>
+            <div >
+                <Link to="/homesweethome">
+                    <img className={styles.footer_img} src={Logo} alt="smiley :)"/>
                 </Link>
             </div>
-            <span>Made with ❤ and <b>ReactJS</b>.</span>
+            <Link className={styles.link} to="/test">Switch to test</Link>
+
+                       <span>Made with ❤ TYPESCRIPT and <b>ReactJS</b>.</span>
         </footer>
     );
 };
