@@ -11,7 +11,7 @@ export const clientRouter = express.Router();
 clientRouter
     // disply all clients
 
-    .get('/client', async (req, res): Promise<void> => {
+    .get('/', async (req, res): Promise<void> => {
         const clients = await ClientRecord.listAll();
         res.json({
             clients,

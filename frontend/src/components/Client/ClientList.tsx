@@ -25,7 +25,6 @@ export const ClientList = () => {
     }, [])
 
     if (clients === null) {
-
         return <Spinner/>
     }
 

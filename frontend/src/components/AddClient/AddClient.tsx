@@ -12,7 +12,7 @@ export const AddClient = () => {
     });
 
     const [loading, setLoading] = useState<boolean>(false)
-    // const[resultInfo, setResultInfo] = useState<string | null>()
+    const[resultInfo, setResultInfo] = useState<string | null>()
 
     const updateForm = (key: string, value: any) => {
         setForm(form => ({
@@ -31,19 +31,22 @@ export const AddClient = () => {
             },
             body: JSON.stringify(form),
         });
-    //     const data: ClientEntity = await res.json();    //pobierz z cliententity i wypisz
-    //     setLoading(false);
-    //     setResultInfo(`Client ${data.name} added with ${data.id}`)
+        const data: ClientEntity = await res.json();    //pobierz z cliententity i wypisz
+        setLoading(false);
+        setResultInfo(`Client ${data.name} added with ${data.id}`)
     }
 
-    if (loading) {
+      if (loading) {
         return <Spinner/>
     }
+    //znika formularz!!!!!!!!!!!!!!!!!!!!!!!
     // if(resultInfo !== null) {
     //     return <p><strong>{resultInfo}</strong></p>
     // }
+    //ZEBY NIE KRECIL SPINNER I NIE RZEBA BYLO ODSWIEZAC STRONY ZEBY ZOBACZYC DODANEGO KLIENTA TRZEBA DAC CONTEXT REDUX
+            //36.40t5d3
 
-    return <form onSubmit={handleSubmit}>
+    return  <form onSubmit={handleSubmit}>
         <h2>Add new client</h2>
         <p>
             <label>

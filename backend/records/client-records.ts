@@ -20,7 +20,6 @@ export class ClientRecord implements ClientEntity {
         if (!obj.name || typeof obj.name !== 'string' || obj.name.length < 3 || obj.name.length > 55) {
             throw new ValidationError('Name has to be text at least 3 and less than 55 characters long')
         }
-
         if (!mail || typeof mail !== 'string' || mail.indexOf('@') === -1) {
             throw new ValidationError('Invalid E-mail')
         }
