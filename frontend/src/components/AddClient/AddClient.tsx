@@ -40,12 +40,14 @@ export const AddClient = () => {
         return <Spinner/>
     }
 
-    if (resultInfo !== null) {              /*pokazuje button, bez formularza. po kliku pokazuje form i po wyslaniu pokazuje komunikat i button. Moze byc.*/
-        return <div>
-            <p><strong>{resultInfo}</strong></p>
-            <button onClick={() => setResultInfo(null)}>Add client to list</button>
-        </div>;
-    }
+
+    /*pokazuje button, bez formularza. po kliku pokazuje form i po wyslaniu pokazuje komunikat i button. Moze byc, ALE po kliku pustego pokazuje komunikat ze undefined dodano..*/
+    // if (resultInfo !== null) {
+    //     return <div>
+    //         <p><strong>{resultInfo}</strong></p>
+    //         <button onClick={() => setResultInfo(null)}>Add client to list</button>
+    //     </div>;
+    // }
 
     //znika formularz!!!!!!!!!!!!!!!!!!!!!!!
     // if(resultInfo !== null) {

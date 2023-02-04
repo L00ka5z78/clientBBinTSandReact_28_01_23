@@ -18,3 +18,20 @@
                         onChange={e => updateForm('name', e.target.value)}
                         // zaktualizuj pole name o wartosc e.target.value
                     />
+
+     react router dom konfiguracja
+     instalujemy paczke i owijamy app w indexie.ts:
+
+     <React.StrictMode>
+           <BrowserRouter>
+               <App />
+           </BrowserRouter>
+       </React.StrictMode>
+
+       koniec
+
+        <>
+               <ClientList/>
+               <AddClient/>
+               <Link to="/test">Switch to test</Link>   <-- przekierowuje do  sciezki test
+           </>
