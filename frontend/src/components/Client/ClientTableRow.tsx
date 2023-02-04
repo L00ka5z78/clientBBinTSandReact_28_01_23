@@ -1,6 +1,7 @@
 import React, {MouseEvent} from 'react';
 import { Link } from 'react-router-dom';
 import {ClientEntity} from 'types';
+import styles from './ClientTable.module.css'
 
 
 interface Props {
@@ -30,11 +31,14 @@ export const ClientTableRow = (props: Props) => {
     return (
         <tr>
             <td>{props.client.id}</td>
-            {/*<Link to={`/client/${props.client.id}`}>*/}
-            {/*    {props.client.name}*/}
-            {/*</Link>*/}
+
             <td>{props.client.name}</td>
-            <td>{props.client.mail}</td>
+            <td>
+                <Link to={`/client/${props.client.id}`}>
+                    {props.client.mail}
+                </Link>
+            </td>
+
             <td>{props.client.nextContactAt}</td>
             <td>{props.client.notes}</td>
 
@@ -45,4 +49,9 @@ export const ClientTableRow = (props: Props) => {
         </tr>
     );
 };
+
+//Link do strony z detalami klienta zrobic
+// <Link to={`/client/${props.client.id}`}>
+//     {props.client.name}
+// </Link>
 

@@ -2,6 +2,7 @@ import React, {FormEvent, useState} from "react";
 import {CreateClientReq} from "types";
 import {Spinner} from "../spinner/Spinner";
 import {ClientEntity} from "types"
+import styles from './AddClient.module.css'
 
 export const AddClient = () => {
     const [form, setForm] = useState<CreateClientReq>({
@@ -56,7 +57,7 @@ export const AddClient = () => {
     //ZEBY NIE KRECIL SPINNER I NIE RZEBA BYLO ODSWIEZAC STRONY ZEBY ZOBACZYC DODANEGO KLIENTA TRZEBA DAC CONTEXT REDUX
             //36.40t5d3
 
-    return  <form onSubmit={handleSubmit}>
+    return  <form className={styles.form} onSubmit={handleSubmit}>
         <h2>Add new client</h2>
         <p>
             <label>
@@ -86,7 +87,7 @@ export const AddClient = () => {
         <p>
             <label>
                 Next contact at: <br/>
-                <textarea
+                <input
                     placeholder="i can't wait for you..."
                     value={form.nextContactAt}
                     onChange={e => updateForm('nextContactAt', e.target.value)}

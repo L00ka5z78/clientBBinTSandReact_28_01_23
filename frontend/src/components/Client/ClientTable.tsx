@@ -2,6 +2,8 @@ import React from 'react';
 import {ClientTableRow} from "./ClientTableRow";
 import {ClientEntity} from 'types'
 
+import styles from './ClientTable.module.css'
+
 
 interface Props {
     clients: ClientEntity[];
@@ -12,7 +14,7 @@ export const ClientTable = (props: Props) => {
     console.log(props.clients);
     return (
         <>
-            <table>
+            <table className={styles.table}>
                 <thead>
                 <tr>
                     <th>ID</th>
@@ -20,6 +22,7 @@ export const ClientTable = (props: Props) => {
                     <th>Email</th>
                     <th>Next contact at</th>
                     <th>Notes</th>
+                    <th>Action</th>
                 </tr>
                 </thead>
                 <tbody>
