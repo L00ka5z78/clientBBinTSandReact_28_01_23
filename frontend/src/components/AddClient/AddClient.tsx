@@ -33,12 +33,20 @@ export const AddClient = () => {
         });
         const data: ClientEntity = await res.json();    //pobierz z cliententity i wypisz
         setLoading(false);
-        setResultInfo(`Client ${data.name} added with ${data.id}`)
+        setResultInfo(`Client ${data.name} added with ID ${data.id}`)
     }
 
       if (loading) {
         return <Spinner/>
     }
+
+    if (resultInfo !== null) {              /*pokazuje button, bez formularza. po kliku pokazuje form i po wyslaniu pokazuje komunikat i button. Moze byc.*/
+        return <div>
+            <p><strong>{resultInfo}</strong></p>
+            <button onClick={() => setResultInfo(null)}>Add client to list</button>
+        </div>;
+    }
+
     //znika formularz!!!!!!!!!!!!!!!!!!!!!!!
     // if(resultInfo !== null) {
     //     return <p><strong>{resultInfo}</strong></p>
