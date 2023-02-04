@@ -32,13 +32,14 @@ export const ClientTableRow = (props: Props) => {
         <tr>
             <td>{props.client.id}</td>
 
-            <td>{props.client.name}</td>
             <td>
                 <Link to={`/client/${props.client.id}`}>
-                    {props.client.mail}
+                    {props.client.name}
                 </Link>
             </td>
-
+            <td>
+                {props.client.mail}
+            </td>
             <td>{props.client.nextContactAt}</td>
             <td>{props.client.notes}</td>
 

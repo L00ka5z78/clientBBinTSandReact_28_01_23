@@ -35,3 +35,19 @@
                <AddClient/>
                <Link to="/test">Switch to test</Link>   <-- przekierowuje do  sciezki test
            </>
+
+             dopasowanie *  wyswietla notfound view jak wejdziemy pod sciezke ktorej nie ma
+             <Route path="*" element={<NotFoundView/>}/>
+
+Zamaist Link mozesz uzywac NavLink i teraz mozna uzyc artybuty style lub classList
+otrzymasz w nich obiekt ktory ma wlasciwosc isActive.
+przyklad
+
+
+             <NavLink style={({isActive}) => ({color: isActive ? 'green' : 'red'})}
+             jezeli link isactive daj zielony kolor jak nie to czerwony
+
+             ALBO DAJESZ DO ZMIENNEJ I UZYWASZ JEJ W NAVLINKU
+     const colorOfLink = ({isActive}: {
+            isActive: boolean;
+        }) => ({color: isActive ? 'green' : 'red'})
