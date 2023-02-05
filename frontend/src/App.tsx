@@ -20,4 +20,4 @@ export const App = () => {
         </>
     )
 }
-/*<Route path="/client" element={<ClientView/>}/>*/ //do testowania
+

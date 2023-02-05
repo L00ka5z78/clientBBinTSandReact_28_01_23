@@ -30,8 +30,8 @@ clientRouter
 
     //display one Client
 
-    .get('/:clientId', async (req, res) => {
-        const client = await ClientRecord.getOne(req.params.clientId);
+    .get('/:id', async (req, res) => {
+        const client = await ClientRecord.getOne(req.params.id);
 
         if (!client) {
             throw new NotFoundError();

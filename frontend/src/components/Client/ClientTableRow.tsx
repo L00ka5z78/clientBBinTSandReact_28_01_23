@@ -28,8 +28,6 @@ export const ClientTableRow = (props: Props) => {
         props.onClientsChange();
     };
 
-
-
     return (
         <tr>
             <td>
@@ -40,8 +38,6 @@ export const ClientTableRow = (props: Props) => {
             <td>
                 <a href={'mailto:{email}'}> {props.client.mail}</a>
             </td>
-
-
             <td>{props.client.nextContactAt}</td>
             <td>{props.client.notes}</td>
 
@@ -53,8 +49,3 @@ export const ClientTableRow = (props: Props) => {
     );
 };
 
-//Link do strony z detalami klienta zrobic
-// <Link to={`/client/${props.client.id}`}>
-//     {props.client.name}
-// </Link>
-// <Data>E-mail:<a href={'mailto:{email}'}>{email}</a></Data>

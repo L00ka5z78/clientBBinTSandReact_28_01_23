@@ -4,7 +4,6 @@ import {ClientEntity} from 'types'
 
 import styles from './ClientTable.module.css'
 
-
 interface Props {
     clients: ClientEntity[];
     onClientsChange: () => void;
@@ -17,7 +16,6 @@ export const ClientTable = (props: Props) => {
             <table className={styles.table}>
                 <thead>
                 <tr>
-                    {/*<th>ID</th>*/}
                     <th>Name</th>
                     <th>Email</th>
                     <th>Next contact at</th>
@@ -30,6 +28,5 @@ export const ClientTable = (props: Props) => {
                 </tbody>
             </table>
         </>
-
     )
 }

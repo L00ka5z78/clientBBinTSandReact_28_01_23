@@ -73,9 +73,8 @@ przyklad
 
              }, [])
 
-                 {/*<h1>{clientInfo.name}</h1>*/}
-                 {/*    */}
-                 {/*    <p>Client's ID is: <small>{clientInfo.id}</small></p>*/}
-                 {/*    <p>Current email is: <small>{clientInfo.mail}</small></p>*/}
-                 {/*    <p>Expected contact at: <small>{clientInfo.nextContactAt}</small></p>*/}
-                 {/*    <p>Additional notes: <small>{clientInfo.notes}</small></p>*/}
+//Link do strony z detalami klienta zrobic
+// <Link to={`/client/${props.client.id}`}>
+//     {props.client.name}
+// </Link>
+// <Data>E-mail:<a href={'mailto:{email}'}>{email}</a></Data>
