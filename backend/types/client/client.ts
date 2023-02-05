@@ -6,4 +6,7 @@ export interface ListClientRes {
 }
 
 export type CreateClientReq = Omit<ClientEntity, 'id'>;
+export interface GetSingleClientRes {
+    client: ClientEntity;
+}
 

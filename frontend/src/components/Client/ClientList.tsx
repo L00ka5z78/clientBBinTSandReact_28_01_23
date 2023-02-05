@@ -7,7 +7,7 @@ export const ClientList = () => {
 
     const [clients, setClients] = useState<ClientEntity[] | null>(null);
 
-    console.log(clients);
+    // console.log(clients);
 
    const refreshClientTable = (async () => {
        setClients(null);

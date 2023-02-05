@@ -51,3 +51,31 @@ przyklad
      const colorOfLink = ({isActive}: {
             isActive: boolean;
         }) => ({color: isActive ? 'green' : 'red'})
+
+       ******** PREKIEROWANIE PO KLIKU W ADRE EMAIL DO POCZTY
+         <td><a href={'mailto:{email}'}> {props.client.mail}</a></td> WYGLADA JAK LINK!
+
+
+       *******  ALBO funkcja
+           const onEmailClick = () => {
+                  window.open(`mailto:${props.client.mail}`);
+             }
+        ******     i w returnie
+
+         <td onClick={onEmailClick}>{props.client.mail}</td>
+
+         ZEBY nasz komponent sie wyswietlil to trzeba fetch dac w useEffect()
+
+           useEffect(() => {
+                 (async () => {
+                    const res = await fetch('http://localhost:3000');
+                 })();
+
+             }, [])
+
+                 {/*<h1>{clientInfo.name}</h1>*/}
+                 {/*    */}
+                 {/*    <p>Client's ID is: <small>{clientInfo.id}</small></p>*/}
+                 {/*    <p>Current email is: <small>{clientInfo.mail}</small></p>*/}
+                 {/*    <p>Expected contact at: <small>{clientInfo.nextContactAt}</small></p>*/}
+                 {/*    <p>Additional notes: <small>{clientInfo.notes}</small></p>*/}

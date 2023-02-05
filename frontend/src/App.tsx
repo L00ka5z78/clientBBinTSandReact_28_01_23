@@ -1,12 +1,11 @@
 import React from 'react';
 import './App.css';
 import {ClientView} from "./views/ClientView";
-import {AddClient} from "./components/AddClient/AddClient";
 import {Footer} from "./components/footer/Footer";
 import {Link, Route, Routes} from "react-router-dom";
 import {Navbar} from "./components/navbar/Navbar";
 import {NotFoundView} from "./views/NotFoundView";
-import {TestView} from "./views/TestView";
+import {SingleClientView} from "./views/SingleClientView";
 
 export const App = () => {
     return (
@@ -14,10 +13,11 @@ export const App = () => {
             <Navbar/>
             <Routes>
                 <Route path="/" element={<ClientView/>}/>
-                <Route path="/mamma" element={<TestView/>}/>
+                <Route path="/client/:clientID" element={<SingleClientView/>}/>
                 <Route path="*" element={<NotFoundView/>}/>
             </Routes>
             <Footer/>
         </>
     )
 }
+/*<Route path="/client" element={<ClientView/>}/>*/ //do testowania

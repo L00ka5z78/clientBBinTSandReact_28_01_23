@@ -26,6 +26,7 @@ app.use(
 app.use('/', homeRouter);
 app.use('/client', clientRouter);
 
+
 app.use(handleError); //own error handling from error.ts
 
 app.listen(3001, 'localhost', () => {

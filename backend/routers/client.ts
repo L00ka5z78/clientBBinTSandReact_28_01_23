@@ -3,7 +3,7 @@ import {Router, Request, Response} from 'express';
 import {pool} from '../utils/db';
 import {ClientRecord} from '../records/client-records';
 import {NotFoundError} from "../utils/error";
-import {CreateClientReq, ListClientRes} from '../types';
+import {CreateClientReq, GetSingleClientRes, ListClientRes} from '../types';
 import {ValidationError} from "../utils/error";
 
 export const clientRouter = express.Router();
@@ -30,14 +30,15 @@ clientRouter
 
     //display one Client
 
-    .get('/:id', async (req, res) => {
-        const client = await ClientRecord.getOne(req.params.id);
+    .get('/:clientId', async (req, res) => {
+        const client = await ClientRecord.getOne(req.params.clientId);
+
         if (!client) {
             throw new NotFoundError();
         }
         res.json({
             client,
-        });
+        } as GetSingleClientRes);   //dodane niepotrzebne?
     })
 
     //update one Client

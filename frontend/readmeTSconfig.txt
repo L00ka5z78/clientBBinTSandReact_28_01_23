@@ -94,7 +94,6 @@ import * as cors from 'cors';
         })
     );
 
-    //t5d1
 
     //
     // export const App = () => {

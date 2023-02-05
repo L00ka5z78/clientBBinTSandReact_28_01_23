@@ -1,5 +1,5 @@
 import React, {MouseEvent} from 'react';
-import { Link } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import {ClientEntity} from 'types';
 import styles from './ClientTable.module.css'
 
@@ -28,23 +28,25 @@ export const ClientTableRow = (props: Props) => {
         props.onClientsChange();
     };
 
+
+
     return (
         <tr>
-            <td>{props.client.id}</td>
-
             <td>
                 <Link to={`/client/${props.client.id}`}>
                     {props.client.name}
                 </Link>
             </td>
             <td>
-                {props.client.mail}
+                <a href={'mailto:{email}'}> {props.client.mail}</a>
             </td>
+
+
             <td>{props.client.nextContactAt}</td>
             <td>{props.client.notes}</td>
 
             <td>
-            <a href="#" onClick={deleteClient}>🗑</a>
+                <a href="#" onClick={deleteClient}>🗑</a>
             </td>
 
         </tr>
@@ -55,4 +57,4 @@ export const ClientTableRow = (props: Props) => {
 // <Link to={`/client/${props.client.id}`}>
 //     {props.client.name}
 // </Link>
-
+// <Data>E-mail:<a href={'mailto:{email}'}>{email}</a></Data>
