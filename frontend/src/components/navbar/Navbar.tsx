@@ -1,7 +1,6 @@
 import React from "react";
 import {Link, NavLink, NavLinkProps, redirect, useNavigate} from "react-router-dom";
 import Logo from '../../images/smiley.png';
-import {inspect} from "util";
 import styles from './Navbar.module.css'
 
 //******************************adjust styling logo placement*****
@@ -27,7 +26,7 @@ export const Navbar = () => {
         <div className={styles.navbar}>
             <div className={styles.container}>
                 <div className={styles.logo}>
-                    <Link to="/mamma">
+                    <Link to="/">
                         <img src={Logo} alt="smiley :)"/>
                     </Link>
                 </div>

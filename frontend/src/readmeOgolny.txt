@@ -2,7 +2,7 @@
            /* pokazuje pobrane dane z BE patrz na klucz w tablicy!!
            i uzywaj w useState()
 
-
+***t5d5 18min
 
     const updateForm = (key: string, value: any) => {
         setForm(form => ({
@@ -66,12 +66,18 @@ przyklad
 
          ZEBY nasz komponent sie wyswietlil to trzeba fetch dac w useEffect()
 
-           useEffect(() => {
-                 (async () => {
-                    const res = await fetch('http://localhost:3000');
-                 })();
+            useEffect(() => {       //przenisc do pliku i zrobic klase/funkcje do fetchowania
+                (async () => {
+                    const res = await fetch(`http://localhost:3001/client/${clientID}`);    <== zapytanie do backendu
+                    setClientInfo(await res.json());
+                    // const data = await res.json()
+                    // console.log(data);
+                })();
+                // console.log(setClientInfo);
 
-             }, [])
+                // zrob obsluge bledow jak przy delete w tableRow najlepiej w osobnym pliku
+
+            }, [])
 
 //Link do strony z detalami klienta zrobic
 // <Link to={`/client/${props.client.id}`}>

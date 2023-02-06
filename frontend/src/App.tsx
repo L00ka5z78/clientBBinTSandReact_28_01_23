@@ -5,7 +5,8 @@ import {Footer} from "./components/footer/Footer";
 import {Link, Route, Routes} from "react-router-dom";
 import {Navbar} from "./components/navbar/Navbar";
 import {NotFoundView} from "./views/NotFoundView";
-import {SingleClientView} from "./views/SingleClientView";
+import {EditClientView} from "./views/EditClientView";
+import {SingleClient} from "./components/Client/SingleClient";
 
 export const App = () => {
     return (
@@ -13,7 +14,8 @@ export const App = () => {
             <Navbar/>
             <Routes>
                 <Route path="/" element={<ClientView/>}/>
-                <Route path="/client/:clientID" element={<SingleClientView/>}/>
+                <Route path="/client/:clientID" element={<SingleClient/>}/>
+                <Route path="/update/:clientID" element={<EditClientView />}/>
                 <Route path="*" element={<NotFoundView/>}/>
             </Routes>
             <Footer/>

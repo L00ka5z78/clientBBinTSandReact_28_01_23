@@ -7,14 +7,13 @@ export const Footer = () => {
 
     return (
         <footer className={styles.footer}>
-            <div >
-                <Link to="/homesweethome">
+            <div>
+                <Link to="/">
                     <img className={styles.footer_img} src={Logo} alt="smiley :)"/>
                 </Link>
             </div>
-            <Link className={styles.link} to="/test">Switch to test</Link>
-
-                       <span>Made with ❤ TYPESCRIPT and <b>ReactJS</b>.</span>
+            <p><Link to="/">Return to clients list</Link></p>
+            <span>Made with ❤ TYPESCRIPT and <b>ReactJS</b>.</span>
         </footer>
     );
 };

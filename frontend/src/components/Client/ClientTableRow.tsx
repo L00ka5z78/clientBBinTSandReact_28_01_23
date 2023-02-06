@@ -1,5 +1,5 @@
 import React, {MouseEvent} from 'react';
-import {Link} from 'react-router-dom';
+import {Link, useParams} from 'react-router-dom';
 import {ClientEntity} from 'types';
 import styles from './ClientTable.module.css'
 
@@ -10,6 +10,9 @@ interface Props {
 }
 
 export const ClientTableRow = (props: Props) => {
+    const {clientID} = useParams()
+
+
     const deleteClient = async (e: MouseEvent) => {
         e.preventDefault();
         if (!window.confirm(`Are you sure you want to remove ${props.client.name}?`)) {
@@ -44,8 +47,10 @@ export const ClientTableRow = (props: Props) => {
             <td>
                 <a href="#" onClick={deleteClient}>🗑</a>
             </td>
+            <td>
+                <Link to={`/client/${clientID}`}>Details</Link>
+            </td>
 
         </tr>
     );
 };
-
