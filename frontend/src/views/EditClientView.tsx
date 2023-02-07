@@ -1,6 +1,6 @@
 import React, {FormEvent, useState} from "react";
 import styles from "../components/AddClient/AddClient.module.css";
-import {ClientEntity, CreateClientReq} from "types";
+import {ClientEntity, CreateClientReq, GetSingleClientRes} from "types";
 import {Spinner} from "../components/spinner/Spinner";
 import {useParams} from "react-router-dom";
 
@@ -10,6 +10,8 @@ import {useParams} from "react-router-dom";
 // }
 
 export const EditClientView = () => {
+    // const [clientInfo, setClientInfo] = useState<GetSingleClientRes>();
+
     const {clientID} = useParams()
 
     const [form, setForm] = useState<ClientEntity>({
@@ -58,7 +60,7 @@ export const EditClientView = () => {
     return (
         <>
             <form className={styles.form} onSubmit={handleSubmit}>
-                <h2>Edit client'sDANE-IMIE data</h2>
+                <h2>Edit client's dabeee data</h2>
                 <p>
                     <label>
                         Name: <br/>
