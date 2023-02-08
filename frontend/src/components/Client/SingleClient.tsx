@@ -61,7 +61,7 @@ export const SingleClient = () => {
         //     return <Spinner/>        //DODAJ SPINNER JAK IDZIESZ DO DETALI PO KLIKU IMIENIA
         // }
         console.log(data);
-        navigate(`/`)
+        navigate(`/deleted`)
 
         if ([400, 500].includes(res.status)) {
             const error = await res.json();

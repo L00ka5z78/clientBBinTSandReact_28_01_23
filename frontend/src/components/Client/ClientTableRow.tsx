@@ -1,5 +1,5 @@
 import React, {MouseEvent} from 'react';
-import {Link, useParams} from 'react-router-dom';
+import {Link, useNavigate, useParams} from 'react-router-dom';
 import {ClientEntity} from 'types';
 import styles from './ClientTable.module.css'
 
@@ -11,7 +11,7 @@ interface Props {
 
 export const ClientTableRow = (props: Props) => {
     const {clientID} = useParams()
-
+    const navigate = useNavigate()
 
     const deleteClient = async (e: MouseEvent) => {
         e.preventDefault();
@@ -29,6 +29,7 @@ export const ClientTableRow = (props: Props) => {
             return;
         }
         props.onClientsChange();
+        navigate(`/deleted`)
     };
 
     return (

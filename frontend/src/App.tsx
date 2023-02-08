@@ -7,6 +7,7 @@ import {Navbar} from "./components/navbar/Navbar";
 import {NotFoundView} from "./views/NotFoundView";
 import {EditClientView} from "./views/EditClientView";
 import {SingleClient} from "./components/Client/SingleClient";
+import {ClientDeleted} from "./components/Client/ClientDeleted";
 
 export const App = () => {
     return (
@@ -17,6 +18,7 @@ export const App = () => {
                 <Route path="/client/:clientID" element={<SingleClient/>}/>
                 <Route path="/update/:clientID" element={<EditClientView />}/>
                 <Route path="*" element={<NotFoundView/>}/>
+                <Route path="/deleted" element={<ClientDeleted/>}/>
             </Routes>
             <Footer/>
         </>

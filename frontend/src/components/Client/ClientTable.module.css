@@ -27,4 +27,21 @@ tr:nth-child(even) {
 tr:hover {
     background-color: #817676;
 }
-/*t5d4.20.08*/
+
+.deleted {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    margin: 10px;
+    background-color: cadetblue;
+    flex-direction: column;
+
+
+}
+.img {
+    height: 250px;
+    width: 300px;
+    border-radius: 50%;
+    padding: 10px;
+}
