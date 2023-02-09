@@ -58,3 +58,12 @@ ClienttableRow
          }, [])
 
  ODSWIEZENIE STRONY PO DODANIU KIENTA
+
+ useefekt od edycji.. nie dziala
+
+     const [data, setData] = useState([])
+     useEffect(async () => {
+         let result = await fetch(`http://localhost:3001/client/${clientID}`);
+         result= await result.json();
+         setData(result)
+     })

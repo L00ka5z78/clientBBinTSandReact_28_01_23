@@ -1,9 +1,7 @@
 import React, {useState} from "react";
-import {Link, useParams} from "react-router-dom";
+import {Link} from "react-router-dom";
 import PlanetImg from '../../images/planets.jpg'
 import styles from './ClientTable.module.css'
-
-import {GetSingleClientRes} from "types";
 
 export const ClientDeleted = () => {
 

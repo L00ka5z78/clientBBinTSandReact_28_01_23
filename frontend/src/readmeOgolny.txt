@@ -84,3 +84,22 @@ przyklad
 //     {props.client.name}
 // </Link>
 // <Data>E-mail:<a href={'mailto:{email}'}>{email}</a></Data>
+
+AddClient
+
+przed returnem
+
+  /*pokazuje button, bez formularza. po kliku pokazuje form i po wyslaniu pokazuje komunikat i button. Moze byc, ALE po kliku pustego pokazuje komunikat ze undefined dodano..*/
+    // if (resultInfo !== null) {
+    //     return <div>
+    //         <p><strong>{resultInfo}</strong></p>
+    //         <button onClick={() => setResultInfo(null)}>Add client to list</button>
+    //     </div>;
+    // }
+
+    //znika formularz!!!!!!!!!!!!!!!!!!!!!!!
+    // if(resultInfo !== null) {
+    //     return <p><strong>{resultInfo}</strong></p>
+    // }
+
+        //ZEBY NIE KRECIL SPINNER I NIE RZEBA BYLO ODSWIEZAC STRONY ZEBY ZOBACZYC DODANEGO KLIENTA TRZEBA DAC CONTEXT REDUX

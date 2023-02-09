@@ -20,7 +20,8 @@ export const ClientTable = (props: Props) => {
                     <th>Email</th>
                     <th>Next contact at</th>
                     <th>Notes</th>
-                    <th>Action</th>
+                    <th>Delete</th>
+                    <th>Details</th>
                 </tr>
                 </thead>
                 <tbody>

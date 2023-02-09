@@ -3,12 +3,6 @@ import {ClientEntity, GetSingleClientRes} from "types";
 import {Link, useNavigate, useParams} from "react-router-dom";
 import {Spinner} from "../spinner/Spinner";
 
-// interface Props {
-//     client: ClientEntity;
-// onClientsChange: () => void;
-// }
-
-
 export const SingleClient = () => {
 
     const [loading, setLoading] = useState<boolean>(false)
@@ -18,12 +12,14 @@ export const SingleClient = () => {
     const navigate = useNavigate()
 
     const handleEdit = () => {
+        setLoading(true)
         navigate(`/update/${clientID}`)
-        console.log(clientID);
-        console.log(clientInfo);
 
+        setLoading(false)
+        if (loading) {
+            return <Spinner/>        //DODAJ SPINNER JAK IDZIESZ DO DETALI PO KLIKU IMIENIA
+        }
     }
-
 
 
     useEffect(() => {       //przenisc do pliku i zrobic klase/funkcje do fetchowania
@@ -38,7 +34,6 @@ export const SingleClient = () => {
         // zrob obsluge bledow jak przy delete w tableRow najlepiej w osobnym pliku
 
     }, [])
-
 
 
     if (clientInfo === null) {
@@ -84,7 +79,6 @@ export const SingleClient = () => {
             </div>
             <div>
                 <button onClick={handleEdit}>Edit client data</button>
-                {/*<button >Delete client</button>*/}
                 <button onClick={handleDelete}>Delete client</button>
             </div>
 

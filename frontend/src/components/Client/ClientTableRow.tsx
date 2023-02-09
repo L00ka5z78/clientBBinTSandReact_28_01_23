@@ -46,10 +46,10 @@ export const ClientTableRow = (props: Props) => {
             <td>{props.client.notes}</td>
 
             <td>
-                <a href="#" onClick={deleteClient}>🗑</a>
+                <button className={styles.btn_delete} onClick={deleteClient}>Delete</button>
             </td>
             <td>
-                <Link to={`/client/${clientID}`}>Details</Link>
+                <Link to={`/client/${props.client.id}`}>View more...</Link>
             </td>
 
         </tr>
