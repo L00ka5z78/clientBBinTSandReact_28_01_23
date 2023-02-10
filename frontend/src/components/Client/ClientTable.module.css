@@ -60,3 +60,36 @@ tr:hover {
     background-color: #e1179e;
     color: black;
 }
+.client_page {
+    padding: 57px 27px;
+    background-color: lightsalmon;
+
+}
+.client_details {
+    margin: 0;
+    font-size: 19px;
+    letter-spacing: -0.05em;
+}
+.client_details li {
+    line-height: 19px;
+    padding-block: 10px;
+}
+.client_details li::marker {
+    font-size: 1.7rem;
+    color: #116f88;
+}
+
+.client_btn {
+    margin-top: 46px;
+    max-width: 400px;
+    padding: 10px;
+}
+.main__title {
+    margin: 0;
+    font-size: 39px;
+    letter-spacing: -0.05em;
+}
+.btn {
+
+    margin: 6px;
+}
