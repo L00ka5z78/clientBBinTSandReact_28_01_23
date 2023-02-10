@@ -1,4 +1,6 @@
  ODSWIEZENIE STRONY PO DODANIU KIENTA*******************************************
+//todo ZEBY NIE nRZEBA BYLO ODSWIEZAC STRONY Po  DODANIU NOWEGO KLIENTA ZEBY ZOBACZYC GO NA LISCIE zastepczo widok dodanego z komunikatem
+
 
 AddClient.tsx
 

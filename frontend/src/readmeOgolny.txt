@@ -103,3 +103,37 @@ przed returnem
     // }
 
         //ZEBY NIE KRECIL SPINNER I NIE RZEBA BYLO ODSWIEZAC STRONY ZEBY ZOBACZYC DODANEGO KLIENTA TRZEBA DAC CONTEXT REDUX
+
+
+        ClientAdded daj btn do detali jak bedziesz mial czas
+          const { clientID } = useParams();
+            const navigate = useNavigate();
+            console.log(clientID);
+  const handleDetails = () => {
+        console.log('klik');
+        navigate(`./client/${clientID}`)
+    }
+ <button className={styles.btn} onClick={handleDetails}>Check details</button>
+
+
+ navbar.tsx
+
+
+
+    // let navigate = useNavigate();
+    // const routeChange = () => {
+    //     const path = '/register';
+    //     navigate(path);
+    // }
+
+    // const showToast = () => {
+    //     toast.success("Success message")
+    // };
+    //
+    const colorOfLink = ({isActive}: {
+        isActive: boolean;
+    }) => ({color: isActive ? 'green' : 'red'})
+
+        <NavLink style={colorOfLink} to="/add">Switch to addClient </NavLink>
+                 <NavLink style={colorOfLink} to="/client/id:">Switch to clientDetails_id </NavLink>
+

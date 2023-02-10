@@ -3,6 +3,7 @@ import { CreateClientReq } from 'types';
 import { Spinner } from '../spinner/Spinner';
 import { ClientEntity } from 'types';
 import styles from './AddClient.module.css';
+import {useNavigate} from "react-router-dom";
 
 export const AddClient = () => {
   const [form, setForm] = useState<CreateClientReq>({
@@ -14,6 +15,8 @@ export const AddClient = () => {
 
   const [loading, setLoading] = useState<boolean>(false);
   const [resultInfo, setResultInfo] = useState<string | null>();
+
+  const navigate = useNavigate();
 
   const updateForm = (key: string, value: any) => {
     setForm((form) => ({
@@ -35,6 +38,8 @@ export const AddClient = () => {
     const data: ClientEntity = await res.json(); //pobierz z cliententity i wypisz
     setLoading(false);
     setResultInfo(`Client ${data.name} added with ID ${data.id}`);
+    //napisz jakiegos ifa zeby po kliku na pusta formenie kierowal do added view
+    navigate('/added')
   };
 
   if (loading) {
@@ -43,11 +48,8 @@ export const AddClient = () => {
   console.log(form);
   console.log(resultInfo);
 
-  //todo ZEBY NIE nRZEBA BYLO ODSWIEZAC STRONY Po  DODANIU NOWEGO KLIENTA ZEBY ZOBACZYC GO NA LISCIE
-  //JAK SIE ZA TO ZABRAC?  wyrzucic e.preventDefault??
-
   return (
-    <form className={styles.form} onSubmit={handleSubmit}>
+    <form id='bottom' className={styles.form} onSubmit={handleSubmit}>
       <h2>Add new client</h2>
       <p>
         <label>
@@ -101,3 +103,4 @@ export const AddClient = () => {
     </form>
   );
 };
+//klikasz pusty add daj tosta z errorem

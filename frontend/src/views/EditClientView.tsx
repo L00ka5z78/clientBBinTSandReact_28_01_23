@@ -2,7 +2,7 @@ import React, { FormEvent, useEffect, useState } from 'react';
 import styles from '../components/AddClient/AddClient.module.css';
 import { ClientEntity, CreateClientReq, GetSingleClientRes } from 'types';
 import { Spinner } from '../components/spinner/Spinner';
-import { useParams } from 'react-router-dom';
+import {useNavigate, useParams} from 'react-router-dom';
 
 // interface Props {
 //     client: ClientEntity;
@@ -22,13 +22,14 @@ export const EditClientView = () => {
     notes: '',
   });
 
-  // const [form, setForm] = useState<ClientEntity>(clientID);
+  // const [form, setForm] = useState<ClientEntity>();
 
   const [loading, setLoading] = useState<boolean>(false);
   const [resultInfo, setResultInfo] = useState<string | null>();
 
-  console.log(form);
-  // console.log(resultInfo);
+  const navigate = useNavigate()
+  // console.log(form);
+  console.log(resultInfo);
 
   const updateForm = (key: string, value: any) => {
     setForm((form) => ({
@@ -53,6 +54,7 @@ export const EditClientView = () => {
     setLoading(false);
     setResultInfo(`Client ${data.name} updated`);
   };
+  // navigate(`/updated`)
   /** PUT działa, pobiera klienta z BE, można wpisać nowe dane i zapisać. Zapisuje. Zapisuje nawet wtedy jak nie jest wypełnione pole REQUIRED (zwaliduje to później, jak cały CRUD bedzie działał), ale wtedy wywala Backend.
    * Co zrobić, żeby po wejsciu w edycję danych klienta, jego obecne były w inputach, albo chociaż w labelach. console.log(clientID) daje jego id, czyli jak to jest to wszystko jest, tylko jak to zastosować..
    */

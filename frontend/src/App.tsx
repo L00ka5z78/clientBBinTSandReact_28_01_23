@@ -9,6 +9,7 @@ import {EditClientView} from "./views/EditClientView";
 import {SingleClient} from "./components/Client/SingleClient";
 import {ClientDeleted} from "./components/Client/ClientDeleted";
 import {ClientUpdated} from "./views/ClientUpdated";
+import { ClientAdded } from './views/ClientAdded';
 
 export const App = () => {
     return (
@@ -21,6 +22,7 @@ export const App = () => {
                 <Route path="*" element={<NotFoundView/>}/>
                 <Route path="/deleted" element={<ClientDeleted/>}/>
                 <Route path="/updated" element={<ClientUpdated/>}/>
+                <Route path="/added" element={<ClientAdded/>}/>
             </Routes>
             <Footer/>
         </>

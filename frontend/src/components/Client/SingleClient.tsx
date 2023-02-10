@@ -33,7 +33,7 @@ export const SingleClient = () => {
 
         // zrob obsluge bledow jak przy delete w tableRow najlepiej w osobnym pliku
 
-    }, [])
+    }, [clientID])
 
 
     if (clientInfo === null) {
@@ -65,7 +65,6 @@ export const SingleClient = () => {
         }
 
     };
-
 
     return (
         <>
