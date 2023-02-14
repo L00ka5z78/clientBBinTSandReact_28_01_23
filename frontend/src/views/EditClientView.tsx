@@ -4,16 +4,13 @@ import { ClientEntity, CreateClientReq, GetSingleClientRes } from 'types';
 import { Spinner } from '../components/spinner/Spinner';
 import {useNavigate, useParams} from 'react-router-dom';
 
-// interface Props {
-//     client: ClientEntity;
-//     onClientsChange: () => void;
-// }
 
 export const EditClientView = () => {
-  // const [clientInfo, setClientInfo] = useState<GetSingleClientRes>();
+  const [clientInfo, setClientInfo] = useState<GetSingleClientRes>();
   const { clientID } = useParams();
   // console.log(clientInfo);
-  console.log(clientID);
+
+  console.log(clientID);             // returns clients ID    ******************************
 
   const [form, setForm] = useState<ClientEntity>({
     name: '',
@@ -21,15 +18,11 @@ export const EditClientView = () => {
     nextContactAt: '',
     notes: '',
   });
+ const [loading, setLoading] = useState<boolean>(false);
+  const [resultInfo, setResultInfo] = useState<string | null>(null);
 
-  // const [form, setForm] = useState<ClientEntity>();
+  // const navigate = useNavigate()
 
-  const [loading, setLoading] = useState<boolean>(false);
-  const [resultInfo, setResultInfo] = useState<string | null>();
-
-  const navigate = useNavigate()
-  // console.log(form);
-  console.log(resultInfo);
 
   const updateForm = (key: string, value: any) => {
     setForm((form) => ({
@@ -42,7 +35,7 @@ export const EditClientView = () => {
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    //przenies do osobnej funkcji
+     //przenies do osobnej funkcji
     const res = await fetch(`http://localhost:3001/client/${clientID}`, {
       method: 'PUT',
       headers: {
@@ -51,18 +44,21 @@ export const EditClientView = () => {
       body: JSON.stringify(form),
     });
     const data: ClientEntity = await res.json(); //pobierz z cliententity i wypisz
+
+
+      console.log(data);    /** returns  clients object  client: id:"81eae6f3-9e56-4fe9-bf2f-8fd47baef799" mail:""name:""nextContactAt :""notes: "" **/
+      console.log(data.name)
     setLoading(false);
     setResultInfo(`Client ${data.name} updated`);
   };
-  // navigate(`/updated`)
-  /** PUT działa, pobiera klienta z BE, można wpisać nowe dane i zapisać. Zapisuje. Zapisuje nawet wtedy jak nie jest wypełnione pole REQUIRED (zwaliduje to później, jak cały CRUD bedzie działał), ale wtedy wywala Backend.
-   * Co zrobić, żeby po wejsciu w edycję danych klienta, jego obecne były w inputach, albo chociaż w labelach. console.log(clientID) daje jego id, czyli jak to jest to wszystko jest, tylko jak to zastosować..
-   */
+   // navigate(`/updated`)
+ /** PUT działa, pobiera klienta z BE, można wpisać nowe dane i zapisać. Zapisuje. Zapisuje nawet wtedy jak nie jest wypełnione pole REQUIRED (zwaliduje to później, jak cały CRUD bedzie działał), ale wtedy wywala Backend.
+//    * Co zrobić, żeby po wejsciu w edycję danych klienta, jego obecne były w inputach, albo chociaż w labelach. console.log(clientID) daje jego id, czyli jak to jest to wszystko jest, tylko jak to zastosować..
+    */
 
   if (loading) {
     return <Spinner />;
   }
-  // console.log(handleSubmit);
 
   return (
     <>
@@ -80,7 +76,6 @@ export const EditClientView = () => {
             />
           </label>
         </p>
-
         <p>
           <label>
             E-mail: <br />
@@ -92,7 +87,6 @@ export const EditClientView = () => {
             />
           </label>
         </p>
-
         <p>
           <label>
             Next contact at: <br />
@@ -103,7 +97,6 @@ export const EditClientView = () => {
             />
           </label>
         </p>
-
         <p>
           <label>
             Notes: <br />
@@ -114,9 +107,9 @@ export const EditClientView = () => {
             />
           </label>
         </p>
-
         <button type="submit">Save changes</button>
       </form>
     </>
   );
 };
+

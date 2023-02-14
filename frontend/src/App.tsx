@@ -18,7 +18,7 @@ export const App = () => {
             <Routes>
                 <Route path="/" element={<ClientView/>}/>
                 <Route path="/client/:clientID" element={<SingleClient/>}/>
-                <Route path="/update/:clientID" element={<EditClientView />}/>
+                <Route path="/update/:clientID" element={<EditClientView/>}/>
                 <Route path="*" element={<NotFoundView/>}/>
                 <Route path="/deleted" element={<ClientDeleted/>}/>
                 <Route path="/updated" element={<ClientUpdated/>}/>
